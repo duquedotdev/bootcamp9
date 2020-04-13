@@ -56,6 +56,7 @@ server.get("/users/:id", checkUserInArray , (req, res) => {
 server.post("/users/", checkUserExist,(req, res) => {
   const { name } = req.body;
   users.push(name);
+  
   return res.json("Usuário incluído com sucesso!");
 });
 
