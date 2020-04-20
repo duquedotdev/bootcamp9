@@ -18,17 +18,23 @@ class User extends Model {
     User.beforeCreate(async (user) => {
       // eslint-disable-next-line no-param-reassign
       if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 10);
+        // eslint-disable-next-line no-param-reassign
+        user.password_hash = await bcrypt.hash(user.password, 8);
       }
       return this;
     });
     User.beforeUpdate(async (user) => {
       // eslint-disable-next-line no-param-reassign
       if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 10);
+        // eslint-disable-next-line no-param-reassign
+        user.password_hash = await bcrypt.hash(user.password, 8);
       }
       return this;
     });
+  }
+
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
 
   checkPassword(password) {
