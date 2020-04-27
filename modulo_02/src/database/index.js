@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import mongoose from 'Mongoose';
+import mongoose from 'mongoose';
 import User from '../app/models/User';
 import File from '../app/models/File';
 import Appointment from '../app/models/Appointment';
@@ -22,13 +22,15 @@ class Database {
     );
   }
 
-  mongo(){
+  mongo() {
     this.mongoConnection = mongoose.connect(
-      'mongodb://192.168.0.67:27017/gobarber',
-      { useNewUrlParser: true,
-        userFindAndModify: true
+      'mongodb://192.168.0.238:27017/gobarber',
+      {
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true,
       }
-    )
+    );
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import User from '../models/User';
 import File from '../models/File';
 
