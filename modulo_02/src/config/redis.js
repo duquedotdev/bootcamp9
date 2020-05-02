@@ -1,4 +1,4 @@
 export default {
-  host: '192.168.0.238',
+  host: 'localhost',
   port: '6379',
 };
